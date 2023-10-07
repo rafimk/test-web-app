@@ -12,4 +12,8 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /App
 COPY --from=build-env /App/out .
-ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
+
+ENV ASPNETCORE_URLS http://*:6001
+ENV ASPNETCORE_ENVIRONMENT docker
+
+ENTRYPOINT ["dotnet", "test_web_app.dll"]
