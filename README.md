@@ -10,4 +10,4 @@ git add .
 git commit -m "Add workflow to build and push Docker image to Docker Hub"
 
 # bug fix and provided the docker permission for the user
-# bug fix for image name
+# bug fix for image name, fixed docker run command issue
