@@ -10,7 +10,8 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: rafimk/test-web-app:latest
+  IMAGE_NAME: test-web-app
+  TAG_NAME: rafimk/test-web-app:latest
 
 jobs:
   build:
@@ -60,5 +61,5 @@ jobs:
             # Run a new container from a new image
             docker run -d \
             --restart always \
-            --name $(echo $IMAGE_NAME) \
+            --name $(echo $TAG_NAME) \
             $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
